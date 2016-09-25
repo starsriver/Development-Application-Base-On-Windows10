@@ -1,0 +1,46 @@
+﻿<Page
+    x:Class="_1.ListViewExamplePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid x:Name="ListViewExample">
+            <TextBlock HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       FontSize="40"
+                       Text="{x:Bind ViewModel.Title}"></TextBlock>
+            <ListView HorizontalAlignment="Left"
+                      Margin="0,50,0,0"
+                      ItemsSource="{x:Bind ViewModel.ListViewExampleDataSourceCollection}">
+                <ListView.Header>
+                    <StackPanel Orientation="Horizontal" Margin="15,10,0,10">
+                        <SymbolIcon Symbol="Back"></SymbolIcon>
+                        <TextBlock Text="{x:Bind ViewModel.Header}" FontSize="25" Margin="5"></TextBlock>
+                    </StackPanel>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:ListViewExampleDataSource">
+                        <Grid Width="576" BorderBrush="Black" BorderThickness="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                <ColumnDefinition Width="25"></ColumnDefinition>
+                                <ColumnDefinition Width="8*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <SymbolIcon Symbol="{x:Bind Icon}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"></SymbolIcon>
+                            <TextBlock Text="{x:Bind Title}" Grid.Row="0" Grid.Column="2"></TextBlock>
+                            <TextBlock Text="{x:Bind Content}" Grid.Row="1" Grid.Column="2"></TextBlock>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>

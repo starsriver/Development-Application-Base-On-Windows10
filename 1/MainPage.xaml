@@ -1,0 +1,17 @@
+﻿<Page
+    x:Class="_1.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel x:Name="ChooseExamplePage" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Width="120" Height="60" Margin="10" Content="Go To FlipView" Tag="FlipViewExamplePage" Click="Button_Click"></Button>
+            <Button Width="120" Height="60" Margin="10" Content="Go To ListView" Tag="ListViewExamplePage" Click="Button_Click"></Button>
+            <Button Width="120" Height="60" Margin="10" Content="Go To GridView" Tag="GridViewExamplePage" Click="Button_Click"></Button>
+        </StackPanel>
+    </Grid>
+</Page>
