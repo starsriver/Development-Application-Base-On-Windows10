@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,6 +26,20 @@ namespace _0
         public MainPage()
         {
             this.InitializeComponent();
+            rootFrame = Window.Current.Content as Frame;
+        }
+        private Frame rootFrame { get; set; }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            // 设置显示导航栏后退按钮
+            if (rootFrame.CanGoBack)
+            {
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            }
+            else
+            {
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+            }
         }
     }
 }

@@ -54,7 +54,11 @@ namespace _0
                 // 创建要充当导航上下文的框架，并导航到第一页
                 rootFrame = new Frame();
 
+                // 注册全局导航失败侦听器
                 rootFrame.NavigationFailed += OnNavigationFailed;
+
+                // 注册全局导航后退事件侦听器
+                Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += App_BackRequested;
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
@@ -101,6 +105,31 @@ namespace _0
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: 保存应用程序状态并停止任何后台活动
             deferral.Complete();
+        }
+
+        /// <summary>
+        /// 侦听到系统导航后退事件时调用
+        /// 如果你想要从后退导航排除特定页面
+        /// 或想要在显示页面前执行页面级别代码
+        /// 可以在每个页面中注册此事件。
+        /// </summary>
+        /// <param name="sender">系统导航后退的框架</param>
+        /// <param name="e">有关系统导航后退的详细信息</param>
+        private void App_BackRequested(object sender, Windows.UI.Core.BackRequestedEventArgs e)
+        {
+            // 获取当前页面
+            Frame rootFrame = Window.Current.Content as Frame;
+            if (rootFrame == null)
+            {
+                return;
+            }
+            // 检测当前页面后退导航是否可用
+            if (rootFrame.CanGoBack && e.Handled == false)
+            {
+                e.Handled = true;
+                // 导航到上一页
+                rootFrame.GoBack();
+            }
         }
     }
 }

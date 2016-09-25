@@ -8,8 +8,5 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock
-            Text="Test the Windows10 SDK and Development Tool">
-        </TextBlock>
     </Grid>
 </Page>
