@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2", "2\2.csproj", "{944A2FAB-2ADB-42DA-B030-102FB31A1F3A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
@@ -58,6 +60,24 @@ Global
 		{38AF3543-3E33-4978-B2AC-FAA3AB67009B}.Release|x86.ActiveCfg = Release|x86
 		{38AF3543-3E33-4978-B2AC-FAA3AB67009B}.Release|x86.Build.0 = Release|x86
 		{38AF3543-3E33-4978-B2AC-FAA3AB67009B}.Release|x86.Deploy.0 = Release|x86
+		{944A2FAB-2ADB-42DA-B030-102FB31A1F3A}.Debug|ARM.ActiveCfg = Debug|ARM
+		{944A2FAB-2ADB-42DA-B030-102FB31A1F3A}.Debug|ARM.Build.0 = Debug|ARM
+		{944A2FAB-2ADB-42DA-B030-102FB31A1F3A}.Debug|ARM.Deploy.0 = Debug|ARM
+		{944A2FAB-2ADB-42DA-B030-102FB31A1F3A}.Debug|x64.ActiveCfg = Debug|x64
+		{944A2FAB-2ADB-42DA-B030-102FB31A1F3A}.Debug|x64.Build.0 = Debug|x64
+		{944A2FAB-2ADB-42DA-B030-102FB31A1F3A}.Debug|x64.Deploy.0 = Debug|x64
+		{944A2FAB-2ADB-42DA-B030-102FB31A1F3A}.Debug|x86.ActiveCfg = Debug|x86
+		{944A2FAB-2ADB-42DA-B030-102FB31A1F3A}.Debug|x86.Build.0 = Debug|x86
+		{944A2FAB-2ADB-42DA-B030-102FB31A1F3A}.Debug|x86.Deploy.0 = Debug|x86
+		{944A2FAB-2ADB-42DA-B030-102FB31A1F3A}.Release|ARM.ActiveCfg = Release|ARM
+		{944A2FAB-2ADB-42DA-B030-102FB31A1F3A}.Release|ARM.Build.0 = Release|ARM
+		{944A2FAB-2ADB-42DA-B030-102FB31A1F3A}.Release|ARM.Deploy.0 = Release|ARM
+		{944A2FAB-2ADB-42DA-B030-102FB31A1F3A}.Release|x64.ActiveCfg = Release|x64
+		{944A2FAB-2ADB-42DA-B030-102FB31A1F3A}.Release|x64.Build.0 = Release|x64
+		{944A2FAB-2ADB-42DA-B030-102FB31A1F3A}.Release|x64.Deploy.0 = Release|x64
+		{944A2FAB-2ADB-42DA-B030-102FB31A1F3A}.Release|x86.ActiveCfg = Release|x86
+		{944A2FAB-2ADB-42DA-B030-102FB31A1F3A}.Release|x86.Build.0 = Release|x86
+		{944A2FAB-2ADB-42DA-B030-102FB31A1F3A}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
