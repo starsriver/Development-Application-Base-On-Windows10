@@ -1,0 +1,174 @@
+﻿<Page
+    x:Class="_2.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_2"
+    xmlns:model="using:_2.Model"
+    xmlns:converters="using:_2.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Style x:Key="SplitViewToggleButtonOpen" TargetType="ToggleButton">
+            <Setter Property="Width" Value="120" />
+        </Style>
+        <converters:NullableToBooleanConverter x:Key="NullableToBooleanConverter"></converters:NullableToBooleanConverter>
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="48"/>
+            <ColumnDefinition Width="1392"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="SmallScreenState">
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1440"></AdaptiveTrigger>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SplitViewToggle.IsEnabled" Value="True"></Setter>
+                        <Setter Target="SplitViewContent1.Visibility" Value="Visible"></Setter>
+                        <Setter Target="SplitViewToggle.IsChecked" Value="True"></Setter>
+                        <Setter Target="SplitViewExample.DisplayMode" Value="CompactInline"></Setter>
+                        <Setter Target="SemanticZoomExample.IsZoomedInViewActive" Value="False"></Setter>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720"></AdaptiveTrigger>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SplitViewToggle.IsEnabled" Value="True"></Setter>
+                        <Setter Target="SplitViewToggle.IsChecked" Value="True"></Setter>
+                        <Setter Target="SplitViewExample.DisplayMode" Value="CompactInline"></Setter>
+                        <Setter Target="SemanticZoomExample.IsZoomedInViewActive" Value="True"></Setter>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="640"></AdaptiveTrigger>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SplitViewToggle.IsEnabled" Value="True"></Setter>
+                        <Setter Target="SplitViewToggle.IsChecked" Value="True"></Setter>
+                        <Setter Target="SplitViewExample.DisplayMode" Value="CompactInline"></Setter>
+                        <Setter Target="SemanticZoomExample.IsZoomedInViewActive" Value="True"></Setter>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"></AdaptiveTrigger>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SplitViewToggle.IsEnabled" Value="False"></Setter>
+                        <Setter Target="SplitViewToggle.IsChecked" Value="False"></Setter>
+                        <Setter Target="SemanticZoomExample.IsZoomedInViewActive" Value="True"></Setter>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <SplitView x:Name="SplitViewExample" IsPaneOpen="{x:Bind SplitViewToggle.IsChecked,Mode=TwoWay,Converter={StaticResource NullableToBooleanConverter}}"
+                       DisplayMode="CompactOverlay" CompactPaneLength="48"
+                       RelativePanel.Below="SplitViewToggle" Grid.ColumnSpan="3">
+            <SplitView.Pane>
+                <ListView ItemsSource="{x:Bind viewModel.SplitViewPanItemsCollection}" Margin="0,0,120,0"  Height="{x:Bind Height}">
+                    <ListView.Header>
+                        <ToggleButton x:Name="SplitViewToggle" Width="48" Height="48"
+                                      HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <SymbolIcon Symbol="Bullets" Width="48" Height="48" Margin="-10,-6" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                                <SymbolIcon.RenderTransform>
+                                    <CompositeTransform ScaleX="1.5"/>
+                                </SymbolIcon.RenderTransform>
+                            </SymbolIcon>
+                        </ToggleButton>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="model:SplitViewPanItems">
+                            <Grid Height="48" Margin="-12,0,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="48"></ColumnDefinition>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <SymbolIcon Width="48" Height="48" Grid.Column="0" Symbol="{x:Bind Icon}"></SymbolIcon>
+                                <TextBlock Grid.Column="1" Text="{x:Bind Content}" Margin="0,12,0,0"></TextBlock>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <Border>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="480"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid x:Name="SplitViewContent0" Grid.Column="0">
+                            <SemanticZoom  x:Name="SemanticZoomExample" IsZoomedInViewActive="True">
+                                <SemanticZoom.ZoomedInView>
+                                    <ListView HorizontalAlignment="Left"
+                                            Margin="0,50,0,0"
+                                            ItemsSource="{x:Bind viewModel.SemanticZoomCollection}" Width="902">
+                                            <ListView.Header>
+                                                <StackPanel Orientation="Horizontal" Margin="15,10,0,10">
+                                                    <TextBlock Text="{x:Bind viewModel.Header}" FontSize="25" Margin="5"></TextBlock>
+                                                </StackPanel>
+                                            </ListView.Header>
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate x:DataType="model:SemanticZoomDataSource">
+                                                    <Grid Width="200" BorderBrush="Black" BorderThickness="1">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="100"></RowDefinition>
+                                                            <RowDefinition Height="30"></RowDefinition>
+                                                        </Grid.RowDefinitions>
+                                                        <Image Width="160" Height="90" Margin="0,5,0,0" Source="{x:Bind PictureSource}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"></Image>
+                                                        <TextBlock Text="{x:Bind Title}" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"></TextBlock>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
+                                </SemanticZoom.ZoomedInView>
+                                <SemanticZoom.ZoomedOutView>
+                                    <GridView HorizontalAlignment="Left"
+                                        Margin="0,50,0,0"
+                                        ItemsSource="{x:Bind viewModel.SemanticZoomCollection}">
+                                        <GridView.GroupStyle>
+                                            <GroupStyle>
+                                                <GroupStyle.Panel>
+                                                    <ItemsPanelTemplate >
+                                                        <VirtualizingStackPanel Orientation="Horizontal" Margin="0,0,0,80"></VirtualizingStackPanel>
+                                                    </ItemsPanelTemplate>
+                                                </GroupStyle.Panel>
+                                            </GroupStyle>
+                                        </GridView.GroupStyle>
+                                        <GridView.Header>
+                                            <TextBlock Height="128" Text="{x:Bind viewModel.Header}" FontSize="25" Margin="5"></TextBlock>
+                                        </GridView.Header>
+                                        <GridView.ItemTemplate>
+                                            <DataTemplate x:DataType="model:SemanticZoomDataSource">
+                                                <Grid Width="288" Height="162">
+                                                    <Image Width="288" Height="162" Source="{x:Bind PictureSource}"></Image>
+                                                    <Border Background="#99808080" Height="40" VerticalAlignment="Bottom">
+                                                        <TextBlock Text="{x:Bind Title}" FontSize="20" Foreground="#99FFFFFF" Padding="10,5"></TextBlock>
+                                                    </Border>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </GridView.ItemTemplate>
+                                    </GridView>
+                                </SemanticZoom.ZoomedOutView>
+                            </SemanticZoom>
+                        </Grid>
+                        <Grid x:Name="SplitViewContent1" Grid.Column="1" Visibility="Collapsed">
+                            <TextBlock FontSize="40"  Text="This can show more info" TextLineBounds="TrimToCapHeight" TextWrapping="WrapWholeWords"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </SplitView.Content>
+        </SplitView>
+    </Grid>
+</Page>
