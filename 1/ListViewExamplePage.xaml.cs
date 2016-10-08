@@ -43,6 +43,21 @@ namespace _1
                 SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
             }
         }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ListView listview = (ListView)sender;
+            if (listview == null)
+            {
+                return;
+            }
+            ListViewExampleDataSource tempDataSource = listview.SelectedItem as ListViewExampleDataSource;
+            if(tempDataSource==null)
+            {
+                return;
+            }
+            rootFrame.Navigate(typeof(ContentsPage), tempDataSource);
+        }
     }
     public class ListViewExampleDataSource
     {

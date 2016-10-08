@@ -1,0 +1,20 @@
+﻿<Page
+    x:Class="_1.ContentsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Vertical">
+            <SymbolIcon Symbol="{x:Bind viewModel.dataSource.Icon}" Width="640" Height="480" RenderTransformOrigin="0.5,0.5">
+                <SymbolIcon.RenderTransform>
+                    <CompositeTransform ScaleX="10" ScaleY="10"/>
+                </SymbolIcon.RenderTransform>
+            </SymbolIcon>
+            <TextBlock Text="{x:Bind viewModel.dataSource.Content}" Width="480" FontSize="60"></TextBlock>
+        </StackPanel>
+    </Grid>
+</Page>

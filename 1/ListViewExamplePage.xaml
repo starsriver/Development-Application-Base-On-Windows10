@@ -14,7 +14,7 @@
                        FontSize="40"
                        Text="{x:Bind ViewModel.Title}"></TextBlock>
             <ListView HorizontalAlignment="Left"
-                      Margin="0,50,0,0"
+                      Margin="0,50,0,0" SelectionChanged="ListView_SelectionChanged"
                       ItemsSource="{x:Bind ViewModel.ListViewExampleDataSourceCollection}">
                 <ListView.Header>
                     <StackPanel Orientation="Horizontal" Margin="15,10,0,10">
