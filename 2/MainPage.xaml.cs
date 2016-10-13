@@ -49,10 +49,9 @@ namespace _2
         }
         public MainPageViewModel viewModel { get; set; }
 
-        private void SemanticZoom_ViewChangeStarted(object sender, SemanticZoomViewChangedEventArgs e)
+        private void SemanticZoom_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ;
+            SemanticZoomExample.IsZoomedInViewActive = !SemanticZoomExample.IsZoomedInViewActive;
         }
-        
     }
 }

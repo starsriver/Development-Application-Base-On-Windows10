@@ -112,8 +112,8 @@
                             <SemanticZoom  x:Name="SemanticZoomExample" IsZoomedInViewActive="True">
                                 <SemanticZoom.ZoomedInView>
                                     <ListView HorizontalAlignment="Left"
-                                            Margin="0,50,0,0"
-                                            ItemsSource="{x:Bind viewModel.SemanticZoomCollection}" Width="902">
+                                            Margin="0,50,0,0" ItemClick="SemanticZoom_ItemClick"
+                                            ItemsSource="{x:Bind viewModel.SemanticZoomCollection}" Width="902" IsItemClickEnabled="True">
                                             <ListView.Header>
                                                 <StackPanel Orientation="Horizontal" Margin="15,10,0,10">
                                                     <TextBlock Text="{x:Bind viewModel.Header}" FontSize="25" Margin="5"></TextBlock>
@@ -135,7 +135,7 @@
                                 </SemanticZoom.ZoomedInView>
                                 <SemanticZoom.ZoomedOutView>
                                     <GridView HorizontalAlignment="Left"
-                                        Margin="0,50,0,0"
+                                        Margin="0,50,0,0" ItemClick="SemanticZoom_ItemClick"
                                         ItemsSource="{x:Bind viewModel.SemanticZoomCollection}">
                                         <GridView.GroupStyle>
                                             <GroupStyle>
