@@ -3,7 +3,7 @@
   <Identity Name="c47115b6-2086-4cd9-8934-661e6b38192b" Publisher="CN=StarsRiver" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="c47115b6-2086-4cd9-8934-661e6b38192b" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>Templete</DisplayName>
+    <DisplayName>3</DisplayName>
     <PublisherDisplayName>StarsRiver</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
