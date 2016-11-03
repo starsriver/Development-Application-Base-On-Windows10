@@ -41,4 +41,8 @@
 
 > 项目6由于原设置协议已弃用，故采用UWP的设置页面代替
 
+> 项目7添加了NotificationsExtensions.Win10的NuGet引用
+
+> 项目8添加了Microsoft Store Services SDK
+
 > 其他想到再写😆😆😆
