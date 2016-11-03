@@ -1,0 +1,16 @@
+﻿<Page
+    x:Class="_7.View.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_7.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="CreateTile" Content="创建磁贴" Width="120" Height="70" Click="CreateTile_Click" Margin="5"></Button>
+            <Button x:Name="UpdateTile" Content="更新磁贴" Width="120" Height="70" Click="UpdateTile_Click" Margin="5"></Button>
+        </StackPanel>
+    </Grid>
+</Page>
