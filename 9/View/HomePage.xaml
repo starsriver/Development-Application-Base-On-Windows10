@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="_9.View.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:_9.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Pivot>
+            <PivotItem Header="Pointer">
+                <Rectangle Name="touchRectangle" Height="100" Width="200" Fill="Blue"
+                           PointerPressed="TestPointer_PointerPressed"
+                           PointerReleased="TestPointer_PointerReleased"
+                           PointerMoved="TestPointer_PointerMoved"
+                           PointerExited="TestPointer_PointerExited"/>
+            </PivotItem>
+            <PivotItem Header="Gesture">
+                <Image x:Name="TestGesture" Source="ms-appx:///Assets/J20.jpg"
+                       Holding="TestGesture_Holding" Tag="0"
+                       ManipulationMode="All" ManipulationDelta="TestGesture_ManipulationDelta">
+                    <Image.RenderTransform>
+                        <CompositeTransform x:Name="ImageTransform"></CompositeTransform>
+                    </Image.RenderTransform>
+                </Image>
+            </PivotItem>
+        </Pivot>
+    </Grid>
+</Page>
